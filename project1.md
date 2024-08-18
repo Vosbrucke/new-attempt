@@ -1,5 +1,7 @@
 # Fuel prices in European countries / zones
-Welcome to the project where we explore the prices of different fuel types in European countries / zones. You can interact and display your own selection of different inputs following the link of the deployed app [here](https://vosbrucke.shinyapps.io/Fuel_prices_in_europe/). Have fun and if you find the app useful feel free to leave a star to the repo :)
+Welcome to the project where we explore the prices of different fuel types in European countries / zones. You can interact and display your own selection of different inputs following the link of the deployed app [here](https://vosbrucke.shinyapps.io/Fuel_prices_in_europe/) or below using the button. Have fun and if you find the app useful feel free to leave a star to the [repo](https://github.com/Vosbrucke/Fuel_prices_in_europe) :)
+
+<a href="https://vosbrucke.shinyapps.io/Fuel_prices_in_europe/" class="custom-button">Shiny app link</a>
 
 ### An example output:
 ![app](https://raw.githubusercontent.com/Vosbrucke/Fuel_prices_in_europe/main/Price%20of%20Euro%2095%20in%20Europe%20until%2005%20August%202024.jpeg "Fuel prices example")
