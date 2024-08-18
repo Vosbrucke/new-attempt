@@ -204,6 +204,8 @@ table {
 th, td {
     border: 2px solid #ddd;
     padding: 8px;
+    overflow-wrap: anywhere;
+    word-break: break-all;
     text-align: left;
 }
 
