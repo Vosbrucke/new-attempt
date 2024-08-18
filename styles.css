@@ -9,8 +9,72 @@ body {
 .container {
     display: flex;
     width: 100%;
-    z-index: 1; /* Ensure container is above the background SVG */
+    z-index: 1;
     position: relative;
+}
+
+.menu {
+    position: fixed;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100%;
+    background: #F2E9E2;
+    color: white;
+    list-style: none;
+    padding-top: 0;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center items horizontally */    
+}
+
+.showMenu {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+.showMenu ~ .content {
+    transform: translateX(100%);
+    background-color: #F2E9E2;
+    color: #F2E9E2;
+    transition: transform 0.3s ease;
+}
+
+.hamburger {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    top: -0.1rem;
+    left: -0.1rem;
+    padding: 4px;
+    background: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 10px;
+    height: 1px;
+    background-color: #000;
+    margin: 2px 0px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Transform the hamburger into an "X" */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(2px, 2px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0; /* Hide the middle bar */
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(2px, -2px);
 }
 
 .toc {
@@ -37,71 +101,72 @@ body {
 
 .toc-box {
     display: flex;
-    align-items: flex-end; /* Align items to the bottom */
-    justify-content: flex-start; /* Align items to the left */
+    align-items: flex-end;
+    justify-content: flex-start;
     width: 100%;
     height: 90px;
     border: 2px solid #000000;
-    color: #fff; /* Default text color */
+    color: #fff;
     background-color: #ffffff;
     text-decoration: none;
     font-weight: bold;
-    text-align: left; /* Align text to the left */
-    padding: 10px; /* Padding inside the box */
-    box-sizing: border-box; /* Include padding in the element's total width and height */
+    text-align: left;
+    padding: 10px;
+    box-sizing: border-box;
     border-radius: 20px;
-    transition: background-color 0.5s, color 0.5s;/* Smooth transition */
-    z-index: 2; /* Ensure TOC is above the SVG background */
+    transition: background-color 0.5s, color 0.5s;
+    z-index: 2;
 }
 
 .toc-box:hover {
-    background-color: #F2E9E2 !important; /* Background color on hover */
-    color: #000000; /* Text color on hover */
+    background-color: #F2E9E2 !important;
+    color: #000000;
 }
 
 /* Specific styles for the "Home" TOC box */
 .toc-box.home {
-    color: #000; /* Black text color for "Home" */
-    background-color: #f4f4f4; /* Default background color */
+    color: #000;
+    background-color: #f4f4f4;
     border: 2px solid #000000;
 }
 
 .toc-box.home:hover {
-    background-color: #F2E9E2; /* Transparent background on hover */
-    color: #000; /* Text color remains black on hover */
+    background-color: #F2E9E2;
+    color: #000;
 }
 
 .content {
-    margin-left: 220px; /* Adjust based on the width of the TOC */
+    margin-left: 220px;
     padding: 20px;
-    width: calc(100% - 220px); /* Adjust based on the width of the TOC */
+    width: calc(100% - 220px);
     overflow-y: auto;
+    transition: transform 0.3s ease;
 }
 
 .content-box {
     padding: 20px;
     margin-bottom: 20px;
-    border-radius: 35px; /* Same border-radius as TOC boxes */
-    border: 2px solid #000000; /* Black border of 2px */
+    border-radius: 35px;
+    border: 2px solid #000000;
     color: #F2E9E2;
 }
 
 .inner-box {
-    background: #ffffff; /* White background for inner box */
-    margin: 3px; /* Margin from all sides */
-    padding: 20px; /* Padding inside the inner box */
-    border: 2px solid #000000; /* Black border of 2px */
-    border-radius: 20px; /* Matching border-radius */
-    color: #000000; /* Text color inside the inner box */
+    background: #ffffff;
+    margin: 3px; 
+    padding: 20px; 
+    border: 2px solid #000000;
+    border-radius: 20px;
+    color: #000000;
 }
 
 .inner-box-home {
-    background: #ffffff; /* White background for inner box */
-    margin: 3px; /* Margin from all sides */
-    padding: 20px; /* Padding inside the inner box */
-    border: 2px solid #ffffff; /* Black border of 2px */
-    border-radius: 20px; /* Matching border-radius */
-    color: #000000; /* Text color inside the inner box */
+    background: #ffffff;
+    margin: 3px;
+    padding: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    color: #000000;
 }
 
 .content h2 {
@@ -116,17 +181,17 @@ body {
 }
 
 .content img {
-    max-width: 100%; /* Makes the image responsive and fit within its container */
-    height: auto;    /* Maintain the aspect ratio */
-    display: block;  /* Removes any bottom space below the image */
-    margin: 0 auto;  /* Centers the image horizontally if needed */
+    max-width: 100%;
+    height: auto;   
+    display: block; 
+    margin: 0 auto; 
 }
 
 .inner-box img {
-    max-width: 100%; /* Scale to the width of the inner box */
-    height: auto;    /* Maintain aspect ratio */
-    display: block;  /* Avoid space below the image */
-    margin: 0 auto;  /* Center horizontally if needed */
+    max-width: 100%;
+    height: auto;   
+    display: block; 
+    margin: 0 auto; 
 }
 
 /* Basic table styling */
@@ -178,21 +243,21 @@ html {
 }
 
 .svg-background {
-    position: fixed; /* Ensure it stays in the background */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     /* background: url('https://github.com/marcusvolz/metropolis/blob/master/plots/plot006w.png?raw=true') no-repeat center center; */
-    background-size: cover; /* Adjust to fit your design */
-    opacity: 0.5; /* Optional: Adjust the opacity of the background SVG */
-    z-index: -1; /* Ensure it’s behind other content */
+    background-size: cover;
+    opacity: 0.5;
+    z-index: -1;
 }
 
 .custom-button {
     display: block;
     background-color: #501BC4;
-    margin: 0 auto; /* Center the button horizontally */
+    margin: 0 auto;
     color: white;
     font-weight: bold;
     padding: 10px 20px;
@@ -203,33 +268,43 @@ html {
     border: 2px solid #000000;
     width: 100%;
     box-sizing: border-box; 
-    transition: background-color 0.5s; /* Smooth transition */
+    transition: background-color 0.5s;
 }
 
 .custom-button:hover {
-    background-color: #ffffff; /* Change to white on hover */
+    background-color: #ffffff;
     color: #501BC4;
 }
 
 @media (max-width: 768px) {
+
     .toc {
-        width: 150px; /* Adjust width for medium screens */
-        box-shadow: none; /* Remove shadow if needed */
+        width: 150px;
+        box-shadow: none;
     }
 
     .content {
-        margin-left: 160px; /* Adjust margin for TOC width */
+        margin-left: 160px;
         width: calc(100% - 160px);
     }
 }
 
 @media (max-width: 480px) {
 
+    .hamburger {
+        display: block;
+    }
+
+    .toc-box {
+        width: 80%;
+        height: 80px;
+    }
+
     .toc {
         width: 0vw;
-        transform: translateX(-100%); /* Initially hidden */
+        transform: translateX(-100%);
         position: fixed;
-        height: auto;
+        height: 0vw;
         box-shadow: none;
     }
 
@@ -239,5 +314,7 @@ html {
     }
     .content-box {
         font-size: 10px;
+        text-align: justify;
+        text-justify: inter-word;      
     }
 }

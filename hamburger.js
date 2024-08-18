@@ -1,14 +1,19 @@
-// hamburger.js
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const tocBoxes = document.querySelector('.toc-boxes');
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.querySelector('.menu');
+    const tocItems = document.querySelectorAll('.toc-box');
 
-    if (!hamburger || !tocBoxes) {
-        console.error('Hamburger or toc-boxes element not found');
-        return;
-    }
-
+    // Toggle menu visibility when hamburger button is clicked
     hamburger.addEventListener('click', function() {
-        tocBoxes.classList.toggle('showMenu'); // Toggle the menu visibility
+        menu.classList.toggle('showMenu');
+        hamburger.classList.toggle("active");
+    });
+
+    // Close menu when a TOC item is clicked
+    tocItems.forEach(item => {
+        item.addEventListener('click', function() {
+            menu.classList.remove('showMenu');
+            hamburger.classList.toggle("active");
+        });
     });
 });
