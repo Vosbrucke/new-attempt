@@ -198,12 +198,16 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 6px;
     margin: 20px 0;
+    overflow-wrap: anywhere;
+    word-break: break-all;
 }
 
 th, td {
     border: 2px solid #ddd;
     padding: 8px;
+    font-size: 6px;
     overflow-wrap: anywhere;
     word-break: break-all;
     text-align: left;
@@ -211,6 +215,9 @@ th, td {
 
 th {
     background-color: #f4f4f4;
+    overflow-wrap: anywhere;
+    font-size: 6px;
+    word-break: break-all;
 }
 
 form label {
