@@ -1,0 +1,226 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #F2E9E2;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    z-index: 1; /* Ensure container is above the background SVG */
+    position: relative;
+}
+
+.toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto
+}
+
+.toc h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.toc-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toc-box {
+    display: flex;
+    align-items: flex-end; /* Align items to the bottom */
+    justify-content: flex-start; /* Align items to the left */
+    width: 100%;
+    height: 70px;
+    border: 2px solid #000000;
+    color: #fff; /* Default text color */
+    background-color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: left; /* Align text to the left */
+    padding: 10px; /* Padding inside the box */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    border-radius: 20px;
+    transition: background-color 0.5s, color 0.5s;/* Smooth transition */
+    z-index: 2; /* Ensure TOC is above the SVG background */
+}
+
+.toc-box:hover {
+    background-color: #F2E9E2 !important; /* Background color on hover */
+    color: #000000; /* Text color on hover */
+}
+
+/* Specific styles for the "Home" TOC box */
+.toc-box.home {
+    color: #000; /* Black text color for "Home" */
+    background-color: #f4f4f4; /* Default background color */
+    border: 2px solid #000000;
+}
+
+.toc-box.home:hover {
+    background-color: #F2E9E2; /* Transparent background on hover */
+    color: #000; /* Text color remains black on hover */
+}
+
+.content {
+    margin-left: 220px; /* Adjust based on the width of the TOC */
+    padding: 20px;
+    width: calc(100% - 220px); /* Adjust based on the width of the TOC */
+    overflow-y: auto;
+}
+
+.content-box {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 35px; /* Same border-radius as TOC boxes */
+    border: 2px solid #000000; /* Black border of 2px */
+    color: #F2E9E2;
+}
+
+.inner-box {
+    background: #ffffff; /* White background for inner box */
+    margin: 3px; /* Margin from all sides */
+    padding: 20px; /* Padding inside the inner box */
+    border: 2px solid #000000; /* Black border of 2px */
+    border-radius: 20px; /* Matching border-radius */
+    color: #000000; /* Text color inside the inner box */
+}
+
+.inner-box-home {
+    background: #ffffff; /* White background for inner box */
+    margin: 3px; /* Margin from all sides */
+    padding: 20px; /* Padding inside the inner box */
+    border: 2px solid #ffffff; /* Black border of 2px */
+    border-radius: 20px; /* Matching border-radius */
+    color: #000000; /* Text color inside the inner box */
+}
+
+.content h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.content img {
+    max-width: 100%; /* Makes the image responsive and fit within its container */
+    height: auto;    /* Maintain the aspect ratio */
+    display: block;  /* Removes any bottom space below the image */
+    margin: 0 auto;  /* Centers the image horizontally if needed */
+}
+
+.inner-box img {
+    max-width: 100%; /* Scale to the width of the inner box */
+    height: auto;    /* Maintain aspect ratio */
+    display: block;  /* Avoid space below the image */
+    margin: 0 auto;  /* Center horizontally if needed */
+}
+
+/* Basic table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 2px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 20px;
+    background: #ffffff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.svg-background {
+    position: fixed; /* Ensure it stays in the background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: url('https://github.com/marcusvolz/metropolis/blob/master/plots/plot006w.png?raw=true') no-repeat center center; */
+    background-size: cover; /* Adjust to fit your design */
+    opacity: 0.5; /* Optional: Adjust the opacity of the background SVG */
+    z-index: -1; /* Ensure it’s behind other content */
+}
+
+@media (max-width: 768px) {
+    .toc {
+        width: 150px;
+    }
+
+    .content {
+        margin-left: 170px;
+        width: calc(100% - 170px);
+    }
+}
+
+@media (max-width: 480px) {
+    .toc {
+        position: static;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+    }
+
+    .toc-boxes {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .toc-box {
+        width: 45%;
+        margin-bottom: 10px;
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
