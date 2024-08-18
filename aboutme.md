@@ -1,7 +1,8 @@
 # my background
 
 bachelor in Economics and gaining strength to finally write thesis for my masters in Economic Analysis and Political Science degrees. Don't ask for progress...
-
+<br/><br/>
+<br/><br/>
 ### what I love 
 sunrise trekkings, derp cats, deepdiving into culture and social research, Obama, cooking pasta meals, making poke bowls, VSauce, having no plan, hostels, croissants, Gael Faye, Paris
 
