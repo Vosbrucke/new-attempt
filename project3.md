@@ -83,7 +83,7 @@ In terms of visual representation of the two variables the bivariate plot was us
 <img src="https://raw.githubusercontent.com/Vosbrucke/Poland_COVID_vaccination/main/Plots/Two-factor_analysis_bivariate_plot.png" width="750">
 </p>
 
-### #Multivariate analysis
+### Multivariate analysis
 
 Further analysis includes adding further variables in order to better understand the distribution differences of the vaccination rates.
 
