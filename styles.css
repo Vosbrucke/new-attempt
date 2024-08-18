@@ -198,6 +198,7 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #ffffff;
     font-size: 6px;
     margin: 8px 0;
     overflow-wrap: anywhere;
@@ -205,16 +206,18 @@ table {
 }
 
 th, td {
-    border: 2px solid #ddd;
-    padding: 1px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 2px;
     font-size: 6px;
     overflow-wrap: anywhere;
+    background-color: #ffffff;
     word-break: break-all;
     text-align: left;
 }
 
 th {
-    background-color: #f4f4f4;
+    background-color: #F2E9E2;
     overflow-wrap: anywhere;
     font-size: 6px;
     word-break: break-all;
