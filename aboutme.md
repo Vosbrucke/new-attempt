@@ -1,6 +1,6 @@
 # my background
 
-bachelor in Economics and gaining strength to finally write thesis for my masters in Economic Analysis and Political Science degrees. Don't ask for progress...
+bachelor in Economics and gaining strength to finally write thesis for my masters in Economic Analysis and Political Science degrees. Don't ask about progress...
 <br/><br/>
 <br/><br/>
 ### what I love 
