@@ -199,14 +199,14 @@ table {
     width: 100%;
     border-collapse: collapse;
     font-size: 6px;
-    margin: 20px 0;
+    margin: 8px 0;
     overflow-wrap: anywhere;
     word-break: break-all;
 }
 
 th, td {
     border: 2px solid #ddd;
-    padding: 8px;
+    padding: 1px;
     font-size: 6px;
     overflow-wrap: anywhere;
     word-break: break-all;
@@ -315,6 +315,15 @@ html {
         position: fixed;
         height: 0vw;
         box-shadow: none;
+    }
+    table {
+        font-size: 4px;
+    }
+    th, td {
+        font-size: 4px;
+    }
+    th {
+        font-size: 4px;
     }
 
     .content {
